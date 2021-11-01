@@ -1,0 +1,26 @@
+CREATE TABLE Users (
+  UserId INT IDENTITY (1,1) PRIMARY KEY,
+  Username VARCHAR(255) UNIQUE,
+  Password VARCHAR(255),
+  Creation_timestamp DATETIME,
+  Last_login_timestamp DATETIME
+)
+CREATE TABLE Notes (
+ NoteId INT IDENTITY (1,1) PRIMARY KEY,
+ Creation_timestamp DATETIME,
+ Note_text NVARCHAR(MAX),
+ Project NVARCHAR(MAX)
+)
+CREATE TABLE Projects(
+ProjectId INT IDENTITY (1,1) PRIMARY KEY,
+Name VARCHAR(255) UNIQUE
+)
+CREATE TABLE Attributes(
+AttributeId INT IDENTITY (1,1) PRIMARY KEY,
+Name VARCHAR(255) UNIQUE
+)
+CREATE TABLE NoteAttributes(
+NoteId INT,
+AttributeId INT,
+PRIMARY KEY (NoteId, AttributeId)
+)
